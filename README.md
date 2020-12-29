@@ -24,7 +24,7 @@ Run using
   - jdaomode off [Usage: /jdaomode]
       - changes avatar to Kevin Nguyen
       - changes nickname to Kevin Nguyen
-      - sends "kys echau" on every message [ITS A JOKE]
+      - stops spamming chat
   - League of Legends champion build [Usage: /build [lane] [champion]]
       - uses http://lol.lukegreen.xyz/ api to scrape opgg data
       - sends top 5 builds for champion in specified lane
