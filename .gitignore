@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 
 secret_token.py
+secret_token.py/
