@@ -6,12 +6,12 @@ Written in Python 3.8.5 64-bit
 Usage: python3 bot.py
 
 Features:
-    - jdaomode on [Usage: !jdaomode]
+    - jdaomode on [Usage: /jdaomode]
         - changes avatar to jdao1's avatar
         - changes nickname to jdao1
         - sends random jdao1 quote on every message
         - sends "hi ____" if "i'm ____" is detected
-    - jdaomode off [Usage: !jdaomode]
+    - jdaomode off [Usage: /jdaomode]
         - changes avatar to Kevin Nguyen
         - changes nickname to Kevin Nguyen
         - sends "kys echau" on every message [ITS A JOKE]
@@ -19,7 +19,7 @@ Features:
         - uses http://lol.lukegreen.xyz/ api to scrape opgg data
 
     WIP:
-        - !build [lane] [champion]
+        - /build [lane] [champion]
         - Storing jdaomode in pickle file
 '''
 
@@ -63,10 +63,10 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('!build'):
+    if message.content.startswith('/build'):
         msg = message.content.split(' ')
         if len(msg) < 3:
-            await channel.send(f'Usage: !build [lane] [champion]')
+            await channel.send(f'Usage: /build [lane] [champion]')
         else:
             await channel.send(f'lane: {msg[1]}')
             await channel.send(f'champ: {msg[2]}')
@@ -91,7 +91,7 @@ async def on_message(message):
                     
             
 
-    elif message.content.startswith('!jdaomode'):
+    elif message.content.startswith('/jdaomode'):
         if jdaomode == True:
             jdaomode = False
             await channel.send('JDAOMODE DEACTIVATED')
