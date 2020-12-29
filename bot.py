@@ -64,18 +64,12 @@ async def on_message(message):
         return
 
     if message.content.startswith('/build'):
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
         '''
         Build Command
         Lists builds for champion from op.gg
 
         Usage: /build [lane] [champion]
         '''
->>>>>>> build command implementation
->>>>>>> build command implementation
         msg = message.content.split(' ')
         if len(msg) < 3:
             await channel.send(f'Usage: /build [lane] [champion]')
