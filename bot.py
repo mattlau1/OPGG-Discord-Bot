@@ -29,7 +29,7 @@ from random import randint
 import requests
 import json
 import urllib.request
-from secret_token import token_class
+from secret.secret_token import token_class
 
 
 TOKEN = token_class().get_token()
