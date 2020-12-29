@@ -64,6 +64,18 @@ async def on_message(message):
         return
 
     if message.content.startswith('/build'):
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        '''
+        Build Command
+        Lists builds for champion from op.gg
+
+        Usage: /build [lane] [champion]
+        '''
+>>>>>>> build command implementation
+>>>>>>> build command implementation
         msg = message.content.split(' ')
         if len(msg) < 3:
             await channel.send(f'Usage: /build [lane] [champion]')
@@ -80,16 +92,9 @@ async def on_message(message):
                     for item in data[f'build_{num}']:
                         build += (item.lstrip("(\"\'")) + ', '
                     
-                   
                     build += '\n'
-                    
-                   
-    
-            
-            await channel.send(build)
 
-                    
-            
+            await channel.send(build)
 
     elif message.content.startswith('/jdaomode'):
         if jdaomode == True:
