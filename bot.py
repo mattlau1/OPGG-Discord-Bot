@@ -39,7 +39,7 @@ jono_quotes = [
     'leg?', 'woooow', 'reeaallyy?', 'no way', 'wai u lai'
 ]
 client = discord.Client()
-jdaomode = True
+jdaomode = False
 
 def get_pfp(user):
     '''
