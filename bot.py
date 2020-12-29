@@ -10,11 +10,11 @@ Features:
         - changes avatar to jdao1's avatar
         - changes nickname to jdao1
         - sends random jdao1 quote on every message
-        - sends "hi ____" if "i'm ____" is detected
+        - sends "hi ____" if "im ____" is detected
     - jdaomode off [Usage: /jdaomode]
         - changes avatar to Kevin Nguyen
         - changes nickname to Kevin Nguyen
-        - sends "kys echau" on every message [ITS A JOKE]
+        - stops spamming
     - League of Legends champion build [Usage: /build [lane] [champion]]
         - uses http://lol.lukegreen.xyz/ api to scrape opgg data
         - sends top 5 builds for champion in specified lane
@@ -74,8 +74,8 @@ async def on_message(message):
         if len(msg) < 3:
             await channel.send(f'Usage: /build [lane] [champion]')
         else:
-            await channel.send(f'lane: {msg[1]}')
-            await channel.send(f'champ: {msg[2]}')
+            await channel.send(f'Lane: {msg[1]}')
+            await channel.send(f'Champ: {msg[2]}')
             
             build_url = f'http://lol.lukegreen.xyz/build/{msg[1]}/{msg[2]}'
             build = ''
@@ -102,6 +102,23 @@ async def on_message(message):
             await message.guild.get_member(client.user.id).edit(nick='jdao1')
             await client.user.edit(password=None, avatar=get_pfp('jdao'))
 
+    elif message.content.startswith('/help'):
+        await channel.send(
+        '''
+        Features:
+    - jdaomode on ``[Usage: /jdaomode]``
+        - changes avatar to jdao1's avatar
+        - changes nickname to jdao1
+        - sends random jdao1 quote on every message
+        - sends ``"hi ____"`` if ``"i'm ____"`` is detected
+    - jdaomode off ``[Usage: /jdaomode]``
+        - changes avatar to Kevin Nguyen
+        - changes nickname to Kevin Nguyen
+        - sends ``"kys echau"`` on every message
+    - League of Legends champion build ``[Usage: /build [lane] [champion]]``
+        - sends top 5 builds for champion in specified lane
+        '''
+        )
     elif message.content.startswith('im ') and jdaomode == True:
         regex = re.sub('(im )', 'hi ', message.content, 1, flags=re.I)
         await channel.send(regex)
@@ -110,8 +127,9 @@ async def on_message(message):
         rand = randint(0, len(jono_quotes) - 1)
         await channel.send(jono_quotes[rand])
 
-    elif re.match('.*', message.content):
-        await channel.send('kys echau')
+    
+    
+    
 
 @client.event
 async def on_ready():
