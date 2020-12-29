@@ -1,4 +1,6 @@
 # jdaobot for Discord
+## About ##
+This bot was supposed to be a joke but now it has random features(?)
 
 ## Usage ##
 Create a new file 'secret_token.py' inside a new folder called secret and insert the following code:
