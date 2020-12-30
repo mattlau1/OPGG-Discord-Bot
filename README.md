@@ -20,3 +20,4 @@ Run using
       - Uses http://lol.lukegreen.xyz/ API to scrape op.gg data
       - Sends top five builds for champion in specified lane
       - Sends most popular runes, scraped using Selenium
+      - ![Preview Image 1](https://raw.githubusercontent.com/mattlau1/Kevin-Nguyen-Bot/master/preview/Preview1.jpg)
