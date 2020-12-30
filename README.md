@@ -10,7 +10,7 @@ This bot was supposed to be a joke but now it has random features(?)
 ## Usage ##
 Create a new file 'secret_token.py' inside a new folder called secret and insert the following code:
 ```
-# This should be in jdaobot/secret/secret_token.py
+# This should be in kevin-nguyen-bot/secret/secret_token.py
 class token_class():
     def get_token(self):
         self.token = 'REPLACE WITH TOKEN'
