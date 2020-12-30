@@ -16,6 +16,7 @@ import urllib.request
 import discord
 import requests
 from discord.ext import commands
+from screenshot import get_runes
 from secret.secret_token import token_class
 
 bot = commands.Bot(command_prefix='/')
@@ -57,6 +58,9 @@ async def build_cmd(ctx, *args):
                     build += '\n'
 
             await ctx.send(build)
+
+            get_runes(args[1], args[0])
+            await ctx.send(file=discord.File('images/out.png'))
         else:
             await ctx.send('Check Spelling u idiot')
 
