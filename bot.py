@@ -60,7 +60,7 @@ async def build_cmd(ctx, *args):
             await ctx.send(build)
 
             get_runes(args[1], args[0])
-            await ctx.send(file=discord.File('images/out.png'))
+            await ctx.send(file=discord.File('images/out2.png'))
         else:
             await ctx.send('Check Spelling u idiot')
 
