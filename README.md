@@ -17,8 +17,10 @@ class token_class():
         return self.token
 ```
 
-Run using 
-``` python3 bot.py ```
+Install Requirements with ``` pip3 install -r requirements.txt ```
+
+Run with ``` python3 bot.py ```
+
 
 ## Features ##
   - LoL champion build [Usage: /build [lane] [champion]]
