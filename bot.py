@@ -41,6 +41,34 @@ jono_quotes = [
 client = discord.Client()
 jdaomode = False
 
+# class commands():
+#     def build_cmd(self, channel, message):
+#         '''
+#         Build Command
+#         Lists builds for champion from op.gg
+
+#         Usage: /build [lane] [champion]
+#         '''
+#         msg = message.content.split(' ')
+#         if len(msg) < 3:
+#             await channel.send(f'Usage: /build [lane] [champion]')
+#         else:
+#             await channel.send(f'Lane: {msg[1]}')
+#             await channel.send(f'Champ: {msg[2]}')
+            
+#             build_url = f'http://lol.lukegreen.xyz/build/{msg[1]}/{msg[2]}'
+#             build = ''
+#             with urllib.request.urlopen(build_url) as url:
+#                 data = json.loads(url.read().decode())
+#                 for num in range(1, 6):
+#                     build += f'Build {num}: '
+#                     for item in data[f'build_{num}']:
+#                         build += (item.lstrip("(\"\'")) + ', '
+                    
+#                     build += '\n'
+
+#             await channel.send(build)
+
 def get_pfp(user):
     '''
     returns a profile picture based on given user
@@ -59,6 +87,7 @@ def get_pfp(user):
 async def on_message(message):
     global jdaomode
     channel = message.channel
+    # cmds = commands(channel, message)
     
     if message.author == client.user:
         return
