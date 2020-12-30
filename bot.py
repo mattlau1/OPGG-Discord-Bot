@@ -1,5 +1,5 @@
 '''
-jdaobot for Discord
+Kevin Nguyen Bot for Discord
 
 Written in Python 3.8.5 64-bit
 
