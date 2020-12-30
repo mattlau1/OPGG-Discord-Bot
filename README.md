@@ -17,5 +17,6 @@ Run using
 
 ## Features ##
   - LoL champion build [Usage: /build [lane] [champion]]
-      - uses http://lol.lukegreen.xyz/ API to scrape op.gg data
-      - sends top 5 builds for champion in specified lane
+      - Uses http://lol.lukegreen.xyz/ API to scrape op.gg data
+      - Sends top five builds for champion in specified lane
+      - Sends most popular runes, scraped using Selenium
