@@ -21,14 +21,13 @@ from secret.secret_token import token_class
 import asyncio
 from discord.ext import commands
 
-client = discord.Client()
 bot = commands.Bot(command_prefix='/')
 
-@client.event
+@bot.event
 async def on_ready():
     print('Logged in as')
-    print(client.user.name)
-    print(client.user.id)
+    print(bot.user.name)
+    print(bot.user.id)
     print('------')
 
 @bot.command()
@@ -62,16 +61,16 @@ async def build(ctx, *args):
         else:
             await ctx.send(f'Check Spelling u idiot')
 
-
 bot.remove_command('help')
 @bot.command()
-async def help(message):
+async def help(ctx):
     print("help command triggered")
-    channel = message.channel
-    await channel.send('''
-    Features:
-    - League of Legends champion build ``[Usage: /build [lane] [champion]]``
-        - sends top 5 builds for champion in specified lane
-    ''')
+    embed=discord.Embed(title="Commands", color=0x0f7ef5)
+    embed.set_thumbnail(url="https://i.ibb.co/sHC7w0d/Screenshot-1.jpg")
+    embed.add_field(
+        name="/build [ top | mid | jg | adc | sup ] [champion]",
+        value="Sends Top 5 Builds for Champion in specified lane"
+    )
+    await ctx.send(embed=embed)
 
 bot.run(token_class().get_token())    
