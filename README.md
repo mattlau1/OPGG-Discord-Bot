@@ -25,6 +25,6 @@ Run using
       - changes avatar to Kevin Nguyen
       - changes nickname to Kevin Nguyen
       - stops spamming chat
-  - League of Legends champion build [Usage: /build [lane] [champion]]
-      - uses http://lol.lukegreen.xyz/ api to scrape opgg data
+  - LoL champion build [Usage: /build [lane] [champion]]
+      - uses http://lol.lukegreen.xyz/ API to scrape op.gg data
       - sends top 5 builds for champion in specified lane

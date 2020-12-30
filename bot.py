@@ -62,6 +62,7 @@ async def build(ctx, *args):
         else:
             await ctx.send(f'Check Spelling u idiot')
 
+
 bot.remove_command('help')
 @bot.command()
 async def help(message):
