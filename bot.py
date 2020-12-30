@@ -67,7 +67,7 @@ async def help_cmd(ctx):
     Sends all commands to user
     '''
     print("help command triggered")
-    embed = discord.Embed(title="Commands", color=0x0f7ef5)
+    embed = discord.Embed(title="Commands", url="https://github.com/mattlau1/Kevin-Nguyen-Bot", color=0x0f7ef5)
     embed.set_thumbnail(url="https://i.ibb.co/sHC7w0d/Screenshot-1.jpg")
     embed.add_field(
         name="/build [ top | mid | jg | adc | sup ] [champion]",
