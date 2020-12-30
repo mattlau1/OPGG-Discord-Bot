@@ -1,4 +1,4 @@
-# Kevin Nguyen bot for Discord
+# Kevin Nguyen Bot for Discord
 ## About ##
 This bot was supposed to be a joke but now it has random features(?)
 
