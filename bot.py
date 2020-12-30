@@ -143,7 +143,7 @@ async def on_message(message):
     - jdaomode off ``[Usage: /jdaomode]``
         - changes avatar to Kevin Nguyen
         - changes nickname to Kevin Nguyen
-        - sends ``"kys echau"`` on every message
+        - stops spamming
     - League of Legends champion build ``[Usage: /build [lane] [champion]]``
         - sends top 5 builds for champion in specified lane
         '''
