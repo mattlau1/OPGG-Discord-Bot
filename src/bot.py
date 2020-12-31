@@ -15,6 +15,8 @@ import json
 import urllib.request
 import re
 import io
+from datetime import datetime
+from multiprocessing.pool import ThreadPool
 import discord
 import requests
 from discord.ext import commands
@@ -45,8 +47,15 @@ async def build_cmd(ctx, *args):
     if len(args) != 2:
         await ctx.send('Usage: /build [lane] [champion]')
     else:
+        prev_time = datetime.now().strftime("%S")
+
+        # start multiprocessing
+        pool = ThreadPool(processes=4)
+        rune_img = pool.apply_async(get_runes, args=(args[1], args[0]))
+
         build_url = f'http://lol.lukegreen.xyz/build/{args[0]}/{args[1]}'
         build = ''
+
         if requests.get(build_url).status_code != 500:
             await ctx.send(f'Lane: {args[0].capitalize()}')
             await ctx.send(f'Champ: {args[1].capitalize()}')
@@ -64,10 +73,18 @@ async def build_cmd(ctx, *args):
 
             # send runes
             with io.BytesIO() as image_binary:
-                get_runes(args[1], args[0]).save(image_binary, 'PNG')
+                rune_img.get().save(image_binary, 'PNG')
                 image_binary.seek(0)
-                await ctx.send(file=discord.File(fp=image_binary, filename='runes.png'))
+                await ctx.send(
+                    file=discord.File(
+                        fp=image_binary,
+                        filename=f'{args[1]} runes.png'
+                    )
+                )
 
+            # print time taken
+            current_time = datetime.now().strftime("%S")
+            print(f"Took approximately {int(current_time)-int(prev_time)} seconds")
         else:
             await ctx.send('Check Spelling u idiot')
 
