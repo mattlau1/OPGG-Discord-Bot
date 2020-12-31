@@ -1,7 +1,7 @@
 # Kevin Nguyen Bot for Discord
 
 ## Preview ##
-![Preview Image 1](https://raw.githubusercontent.com/mattlau1/Kevin-Nguyen-Bot/master/preview/Preview1.jpg)
+![Preview Image 1](https://raw.githubusercontent.com/mattlau1/Kevin-Nguyen-Bot/master/preview/Preview.jpg)
 
 ## About ##
 This bot was supposed to be a joke but now it has random features(?)
