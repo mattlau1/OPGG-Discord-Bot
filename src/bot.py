@@ -13,11 +13,12 @@ Features:
 
 import json
 import urllib.request
+import re
+import io
 import discord
 import requests
-import re
 from discord.ext import commands
-from screenshot import get_runes
+from runes import get_runes
 from secret.secret_token import token_class
 
 bot = commands.Bot(command_prefix='/')
@@ -50,6 +51,7 @@ async def build_cmd(ctx, *args):
             await ctx.send(f'Lane: {args[0].capitalize()}')
             await ctx.send(f'Champ: {args[1].capitalize()}')
 
+            # get items
             with urllib.request.urlopen(build_url) as url:
                 data = json.loads(url.read().decode())
                 for num in range(1, 6):
@@ -60,8 +62,12 @@ async def build_cmd(ctx, *args):
                     build = re.sub(r'(,)[\s]$', '', build)
             await ctx.send(build)
 
-            get_runes(args[1], args[0])
-            await ctx.send(file=discord.File('images/out2.png'))
+            # send runes
+            with io.BytesIO() as image_binary:
+                get_runes(args[1], args[0]).save(image_binary, 'PNG')
+                image_binary.seek(0)
+                await ctx.send(file=discord.File(fp=image_binary, filename='runes.png'))
+
         else:
             await ctx.send('Check Spelling u idiot')
 
@@ -72,7 +78,10 @@ async def help_cmd(ctx):
     Sends all commands to user
     '''
     print("help command triggered")
-    embed = discord.Embed(title="Commands", url="https://github.com/mattlau1/Kevin-Nguyen-Bot", color=0x0f7ef5)
+    embed = discord.Embed(
+        title="Commands",
+        url="https://github.com/mattlau1/Kevin-Nguyen-Bot", color=0x0f7ef5
+    )
     embed.set_thumbnail(url="https://i.ibb.co/sHC7w0d/Screenshot-1.jpg")
     embed.add_field(
         name="/build [ top | mid | jg | adc | sup ] [champion]",
