@@ -14,6 +14,8 @@
     - Defaults to Discord username if no name or region specified
     - Regions: [ oce | na | las | jp | br | tr | ru | eune | kr | lan | euw ]
     - Usage: /opgg kr hide on bush
+- Dark Mode [Usage: /darkmode]
+    - Toggles dark mode (currently used in OP.GG Rune Page)
 
 ## Setup ##
 Create a new file 'secret_token.py' inside a new folder called secret and insert the following code:
