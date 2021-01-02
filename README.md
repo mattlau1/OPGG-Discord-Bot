@@ -21,7 +21,7 @@ Install Requirements with ``` pip3 install -r requirements.txt ```
 Run with ``` python3 bot.py ```
 
 
-Features:
+## Features ##
     - League of Legends champion build [Usage: /build [lane] [champion]]
         - Uses http://lol.lukegreen.xyz/ api to scrape OP.GG data
         - Sends top 5 builds for champion in specified lane
