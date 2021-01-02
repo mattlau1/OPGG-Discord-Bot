@@ -16,6 +16,8 @@ Features:
         - Defaults to Discord username if no name or region specified
         - Regions: [ oce | na | las | jp | br | tr | ru | eune | kr | lan | euw ]
         - Usage: /opgg kr hide on bush
+    - Dark Mode [Usage: /darkmode]
+        - Toggles dark mode (currently used in OP.GG Rune Page)
 '''
 
 import json
@@ -31,6 +33,7 @@ from runes import get_runes
 from secret.secret_token import token_class
 
 bot = commands.Bot(command_prefix='/')
+dark_mode = False
 
 @bot.event
 async def on_ready():
@@ -83,6 +86,12 @@ async def opgg(ctx, *args):
             await ctx.send(f"Usage: /opgg [region](optional) [name]")
 
 @bot.command()
+async def darkmode(ctx, *args):
+    global dark_mode
+    dark_mode ^= True
+    await ctx.send(f"Dark Mode is {bool(dark_mode)}")
+
+@bot.command()
 async def build(ctx, *args):
     '''
     Build Command
@@ -95,11 +104,12 @@ async def build(ctx, *args):
         await ctx.send('Usage: /build [lane] [champion]')
     else:
         async with ctx.typing():
+            global dark_mode
             prev_time = time.time()
 
             # start multiprocessing
             pool = ThreadPool(processes=4)
-            rune_img = pool.apply_async(get_runes, args=(args[1], args[0]))
+            rune_img = pool.apply_async(get_runes, args=(args[1], args[0], dark_mode))
 
             build_url = f'http://lol.lukegreen.xyz/build/{args[0]}/{args[1]}'
             build = ''
@@ -167,6 +177,14 @@ async def help(ctx):
                 Sends OP.GG page.\n
                 Defaults to Discord username if no name or region specified.\n
                 Available Regions: [ oce | na | las | jp | br | tr | ru | eune | kr | lan | euw ]
+                """
+            )
+        )
+        embed.add_field(
+            name="/darkmode",
+            value=(
+                """
+                Toggles Dark Mode for OP.GG Rune Page.
                 """
             )
         )

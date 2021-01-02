@@ -6,7 +6,7 @@ import io
 from selenium import webdriver
 from PIL import Image
 
-def get_runes(champ, lane):
+def get_runes(champ, lane, dark_mode):
     '''
     Screenshots rune page for champion in specified lane and attempts
     to make background transparent.
@@ -30,18 +30,19 @@ def get_runes(champ, lane):
 
     # start processing image byte by byte
     img = Image.open(io.BytesIO(element))
-    img = img.convert("RGBA")
-    data = img.getdata()
+    if dark_mode is True:
+        img = img.convert("RGBA")
+        data = img.getdata()
 
-    # change bg
-    new_data = []
-    for item in data:
-        if item[0] == 245 and item[1] == 245 and item[2] == 245:
-            new_data.append((0, 0, 255, 0))
-        else:
-            new_data.append(item)
+        # change bg
+        new_data = []
+        for item in data:
+            if item[0] == 245 and item[1] == 245 and item[2] == 245:
+                new_data.append((0, 0, 255, 0))
+            else:
+                new_data.append(item)
 
-    # update img
-    img.putdata(new_data)
+        # update img
+        img.putdata(new_data)
 
     return img
