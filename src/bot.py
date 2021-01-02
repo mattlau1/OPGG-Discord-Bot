@@ -35,8 +35,15 @@ async def on_ready():
     print(bot.user.id)
     print('------')
 
-@bot.command(aliases=['build'])
-async def build_cmd(ctx, *args):
+@bot.command()
+async def opgg(ctx, *args):
+    if len(args) == 1:
+        await ctx.send(f"https://oce.op.gg/summoner/userName={args[0]}")
+    else:
+        await ctx.send(f"Usage: /opgg [name]")
+
+@bot.command()
+async def build(ctx, *args):
     '''
     Build Command
     Lists builds for champion from op.gg
@@ -84,12 +91,13 @@ async def build_cmd(ctx, *args):
 
             # print time taken
             print(f"Took approximately {time.time() - prev_time} seconds")
+            await ctx.send(f"That took {time.time() - prev_time} seconds")
         else:
             await ctx.send('Check Spelling u idiot')
 
 bot.remove_command('help')
-@bot.command(aliases=['help'])
-async def help_cmd(ctx):
+@bot.command()
+async def help(ctx):
     '''
     Sends all commands to user
     '''
@@ -102,6 +110,10 @@ async def help_cmd(ctx):
     embed.add_field(
         name="/build [ top | mid | jg | adc | sup ] [champion]",
         value="Sends Top 5 Builds for Champion in specified lane"
+    )
+    embed.add_field(
+        name="/opgg [name]",
+        value="Sends opgg page"
     )
     await ctx.send(embed=embed)
 
