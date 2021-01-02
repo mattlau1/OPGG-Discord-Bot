@@ -21,8 +21,14 @@ Install Requirements with ``` pip3 install -r requirements.txt ```
 Run with ``` python3 bot.py ```
 
 
-## Features ##
-  - LoL champion build [Usage: /build [lane] [champion]]
-      - Uses http://lol.lukegreen.xyz/ API to scrape op.gg data
-      - Sends top five builds for champion in specified lane
-      - Sends most popular runes, scraped using Selenium
+Features:
+    - League of Legends champion build [Usage: /build [lane] [champion]]
+        - Uses http://lol.lukegreen.xyz/ api to scrape OP.GG data
+        - Sends top 5 builds for champion in specified lane
+        - Lanes: [ top | mid | jg | adc | sup ]
+        - Usage: /build top katarina
+    - OP.GG Search [Usage: /opgg [region](optional) [name]]
+        - Sends OP.GG page
+        - Defaults to Discord username if no name or region specified
+        - Regions: [ oce | na | las | jp | br | tr | ru | eune | kr | lan | euw ]
+        - Usage: /opgg kr hide on bush
