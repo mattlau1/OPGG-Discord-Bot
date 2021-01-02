@@ -15,7 +15,7 @@ import json
 import urllib.request
 import re
 import io
-from datetime import datetime
+import time
 from multiprocessing.pool import ThreadPool
 import discord
 import requests
@@ -47,7 +47,7 @@ async def build_cmd(ctx, *args):
     if len(args) != 2:
         await ctx.send('Usage: /build [lane] [champion]')
     else:
-        prev_time = datetime.now().strftime("%S")
+        prev_time = time.time()
 
         # start multiprocessing
         pool = ThreadPool(processes=4)
@@ -83,8 +83,7 @@ async def build_cmd(ctx, *args):
                 )
 
             # print time taken
-            current_time = datetime.now().strftime("%S")
-            print(f"Took approximately {int(current_time)-int(prev_time)} seconds")
+            print(f"Took approximately {time.time() - prev_time} seconds")
         else:
             await ctx.send('Check Spelling u idiot')
 
