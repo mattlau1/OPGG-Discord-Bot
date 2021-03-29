@@ -1,4 +1,4 @@
-# Kevin Nguyen Bot for Discord
+# OP.GG Bot for Discord
 
 ## Preview ##
 ![Preview Image 1](https://raw.githubusercontent.com/mattlau1/Kevin-Nguyen-Bot/master/preview/Preview.jpg)
