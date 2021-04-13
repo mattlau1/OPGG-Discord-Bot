@@ -20,7 +20,7 @@
 ## Setup ##
 Create a new file 'secret_token.py' inside a new folder called secret and insert the following code:
 ```
-# This should be in kevin-nguyen-bot/src/secret/secret_token.py
+# This should be in src/secret/secret_token.py
 class token_class():
     def get_token(self):
         self.token = 'REPLACE WITH TOKEN'
