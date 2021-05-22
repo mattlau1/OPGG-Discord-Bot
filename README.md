@@ -1,4 +1,6 @@
 # OP.GG Bot for Discord
+## Notes
+- This bot is very slow and inefficient, please do not use it
 
 ## Preview ##
 ![Preview Image 1](https://raw.githubusercontent.com/mattlau1/Kevin-Nguyen-Bot/master/preview/Preview.jpg)
